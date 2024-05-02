@@ -130,7 +130,7 @@ export const sendSMS = catchAsyncError(async (req, res, next) => {
   if (!name || !email || !sms)
     return next(new ErrorHandler("Please enter all fields.", 400));
 
-  sendsms("vishwakarmaabhay283@gmail.com", name, ` By ${email} is ${sms}`);
+  await sendsms("vishwakarmaabhay283@gmail.com", name, ` By ${email} is ${sms}`);
   res.status(200).json({
     success: true,
     message: "Your message sent successfully.",
