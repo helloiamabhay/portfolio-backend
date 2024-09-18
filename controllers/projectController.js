@@ -31,7 +31,7 @@ export const projectAdd = catchAsyncError(async (req, res, next) => {
   });
 });
 export const allProjects = catchAsyncError(async (req, res, next) => {
-  const getProjects = await Project.find({});
+  const getProjects = await Project.find({}).lean();
   if (!getProjects) return next(ErrorHandler("No Project Found."));
 
   res.status(201).json({
