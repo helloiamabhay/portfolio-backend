@@ -19,7 +19,7 @@ export const addSkill = catchAsyncError(async (req, res, next) => {
   });
 });
 export const allSkills = catchAsyncError(async (req, res, next) => {
-  const getSkills = await skill.find({});
+  const getSkills = await skill.find({}).lean();
   if (!getSkills) return next(ErrorHandler("No Skills Found."));
 
   res.status(201).json({
